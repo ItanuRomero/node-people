@@ -1,0 +1,40 @@
+{
+  "name": "people",
+  "version": "1.0.0",
+  "description": "Para participar da rinha de backend",
+  "main": "dist/index.js",
+  "scripts": {
+    "dev": "tsx ./src/index.ts",
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ItanuRomero/node-people.git"
+  },
+  "keywords": [
+    "Rinha",
+    "de",
+    "backend",
+    "em",
+    "nodejs",
+    "2023"
+  ],
+  "author": "ItanuRomero",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ItanuRomero/node-people/issues"
+  },
+  "homepage": "https://github.com/ItanuRomero/node-people#readme",
+  "dependencies": {
+    "express": "^4.21.1",
+    "joi": "^17.13.3"
+  },
+  "type": "module",
+  "devDependencies": {
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.7.5",
+    "tsx": "^4.19.1",
+    "typescript": "^5.6.3"
+  }
+}
