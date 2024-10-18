@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "ES2020",                       // Alvo para compatibilidade com as versões mais modernas do Node.js
+    "target": "ESNext",                       // Alvo para compatibilidade com as versões mais modernas do Node.js
     "module": "ESNext",                       // Usar módulos ES (ECMAScript)
     "moduleResolution": "node",               // Resolver módulos como o Node.js faz
     "outDir": "./dist",                       // Diretório de saída do código JavaScript compilado

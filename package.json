@@ -4,9 +4,11 @@
   "description": "Para participar da rinha de backend",
   "main": "dist/index.js",
   "scripts": {
-    "dev": "tsx ./src/index.ts",
+    "dev": "./infra/check-if-pg-is-running.sh && tsx ./src/index.ts",
     "build": "tsc",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "services:database:up": "docker run --name postgres -e POSTGRES_PASSWORD=minhasenha -p 5432:5432 -v $HOME/meu-vol-postgres:/var/lib/postgresql/data -d postgres",
+    "services:database:down": "docker stop $(docker ps -q)"
   },
   "repository": {
     "type": "git",
@@ -28,12 +30,16 @@
   "homepage": "https://github.com/ItanuRomero/node-people#readme",
   "dependencies": {
     "express": "^4.21.1",
-    "joi": "^17.13.3"
+    "joi": "^17.13.3",
+    "pg": "^8.13.0",
+    "uuid": "^10.0.0"
   },
   "type": "module",
   "devDependencies": {
     "@types/express": "^5.0.0",
     "@types/node": "^22.7.5",
+    "@types/pg": "^8.11.10",
+    "@types/uuid": "^10.0.0",
     "tsx": "^4.19.1",
     "typescript": "^5.6.3"
   }
