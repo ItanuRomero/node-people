@@ -8,7 +8,8 @@
     "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1",
     "services:database:up": "docker run --name postgres -e POSTGRES_PASSWORD=minhasenha -p 5432:5432 -v $HOME/meu-vol-postgres:/var/lib/postgresql/data -d postgres",
-    "services:database:down": "docker stop $(docker ps -q)"
+    "services:database:down": "docker stop $(docker ps -q)",
+    "test:stress": "tsc --noEmit && gatling run --typescript --simulation node-people"
   },
   "repository": {
     "type": "git",
@@ -32,7 +33,9 @@
     "express": "^4.21.1",
     "joi": "^17.13.3",
     "pg": "^8.13.0",
-    "uuid": "^10.0.0"
+    "uuid": "^10.0.0",
+    "@gatling.io/core": "3.12.0",
+    "@gatling.io/http": "3.12.0"
   },
   "type": "module",
   "devDependencies": {
@@ -40,6 +43,7 @@
     "@types/node": "^22.7.5",
     "@types/pg": "^8.11.10",
     "@types/uuid": "^10.0.0",
+    "@gatling.io/cli": "3.12.0",
     "tsx": "^4.19.1",
     "typescript": "^5.6.3"
   }
