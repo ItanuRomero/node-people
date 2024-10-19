@@ -1,9 +1,8 @@
 import { pool } from '../../database';
 import { People } from '../schemas/post'
-import { v4 as uuidv4 } from 'uuid'
 
-export async function create(people: People) {
-  const id = uuidv4()
+export async function create(id: string, people: People) {
+
   try {
     const query = `
     INSERT INTO
@@ -21,6 +20,7 @@ export async function create(people: People) {
         $4,
         $5::json
     )
+    ON CONFLICT (apelido) DO NOTHING;
     `
     return pool.query(query, [
       id,
