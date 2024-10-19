@@ -8,7 +8,8 @@ export async function createPeople(req: Request, res: Response) {
 
     const validation = validatePeople(body)
     if (validation.error) {
-        return res.status(validation.statusCode).json({ error: validation.error });
+        res.status(validation.statusCode).json({ error: validation.error });
+        return
     }
 
     try {
@@ -16,12 +17,14 @@ export async function createPeople(req: Request, res: Response) {
         const response = await create(id, validation.value)
 
         if (response?.rowCount && response.rowCount > 0) {
-            return res.status(201).header('Location', `/pessoas/${id}`).send();
+            res.status(201).header('Location', `/pessoas/${id}`).send();
+            return
         }
 
-        return res.status(422).send()
+        res.status(422).send()
     } catch (error) {
         console.error(error)
-        return res.status(500).send()
+        res.status(500).send()
     }
+    return
 }
