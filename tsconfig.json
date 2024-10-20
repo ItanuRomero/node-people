@@ -2,7 +2,7 @@
   "compilerOptions": {
     "target": "ESNext",                       // Alvo para compatibilidade com as versões mais modernas do Node.js
     "module": "ESNext",                       // Usar módulos ES (ECMAScript)
-    "moduleResolution": "node",               // Resolver módulos como o Node.js faz
+    "moduleResolution": "Node",               // Resolver módulos como o Node.js faz
     "outDir": "./dist",                       // Diretório de saída do código JavaScript compilado
     "rootDir": "./src",                       // Diretório de origem dos arquivos TypeScript
     "esModuleInterop": true,                  // Habilitar interoperabilidade entre CommonJS e ES Modules

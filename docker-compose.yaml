@@ -1,0 +1,32 @@
+version: '3.4'
+services:
+  app1: &app
+    hostname: app1
+    build: .
+    environment:
+      DATABASE_URL: postgres://postgres:minhasenha@db:5432/postgres
+    expose:
+      - "8080"
+    depends_on:
+      - db
+  app2:
+    <<: *app
+    hostname: app2
+    depends_on:
+     - db
+     - app1
+  db:
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: minhasenha
+    ports:
+      - "5432:5432"
+  nginx:
+    image: nginx:latest
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+     - app1
+     - app2
+    ports:
+      - "9999:9999"

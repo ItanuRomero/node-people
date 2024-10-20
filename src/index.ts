@@ -8,4 +8,4 @@ app.use(express.json())
 
 app.use(routes)
 
-app.listen(9999, () => console.log('server running on port 3333'))
+app.listen(8080, () => console.log('server running on port 8080'))
