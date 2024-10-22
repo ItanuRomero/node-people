@@ -14,9 +14,7 @@ export async function getPeople(req: Request, res: Response) {
         const response = await detail(id)
 
         if (response?.rowCount && response.rowCount > 0) {
-            const row = response.rows[0]
-            const {searchable, ...people} = row
-            res.status(200).json(people)
+            res.status(200).json(response.rows[0])
             return
         }
 

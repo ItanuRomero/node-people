@@ -3,8 +3,8 @@ import pg from 'pg'
 const URL = 'postgres://postgres:minhasenha@db:5432/postgres'
 
 const pool = new pg.Pool({
-    connectionString: process.env.DATABASE_URL ?? URL,
-    max: (Number(process.env.DB_POOL) ?? 200),
+    connectionString: URL,
+    max: 200,
     idleTimeoutMillis: 0,
     connectionTimeoutMillis: 10000
 });
