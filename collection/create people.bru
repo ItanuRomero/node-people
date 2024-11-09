@@ -1,0 +1,20 @@
+meta {
+  name: create people
+  type: http
+  seq: 2
+}
+
+post {
+  url: http://localhost:9999/pessoas
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "apelido": "Itanú",
+    "nome": "Itanelson Rodrigues",
+    "nascimento": "2001-04-10",
+    "stack": ["Python", "Nodejs"]
+  }
+}
