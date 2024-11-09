@@ -5,16 +5,20 @@ meta {
 }
 
 post {
-  url: http://localhost:9999/pessoas
+  url: {{url}}/pessoas
   body: json
   auth: none
 }
 
 body:json {
   {
-    "apelido": "Itanú",
+    "apelido": "Itanú 4",
     "nome": "Itanelson Rodrigues",
     "nascimento": "2001-04-10",
     "stack": ["Python", "Nodejs"]
   }
+}
+
+vars:post-response {
+  new_people_location: res.headers.location
 }
